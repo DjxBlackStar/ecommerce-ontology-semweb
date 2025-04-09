@@ -42,11 +42,16 @@ This ontology can be useful for:
   - `VerifiedPurchaseReview` (subclass)
   - `UnverifiedReview` (subclass)
 - `Category`
-  - Various product categories as subclasses
+  - `Electronics` (subclass)
+  - `Fashion` (subclass)
+  - `Books` (subclass)
+  - `HomeAppliances` (subclass)
+  - `Toys` (subclass)
 - `Payment`
   - `CreditCardPayment` (subclass)
   - `BankTransferPayment` (subclass)
   - `DigitalWalletPayment` (subclass)
+- `Address`
 
 ### 🔗 Object Properties
 | Property         | Domain     | Range     | Description                                |
@@ -96,6 +101,8 @@ between the main classes of our e-commerce ontology]
 | `foaf`    | <http://xmlns.com/foaf/0.1/>           | Used for representing people and their social connections |
 | `dc`      | <http://purl.org/dc/elements/1.1/>     | Used for metadata elements like title, creator, date |
 | `schema`  | <http://schema.org/>                   | Provides vocabulary for products and commercial entities |
+| `vcard`   | <http://schema.org/](http://www.w3.org/2001/vcard-rdf/3.0#>| If your ontology includes contact information for individuals, vCard can be used. |
+| `skos`   | <http://www.w3.org/2004/02/skos/core#>| Useful for modeling controlled vocabularies, taxonomies, and classifications. This could help in product categories. |
 | `ecomm`   | <http://www.semanticweb.org/ecommerce#>| Our custom namespace for e-commerce specific concepts |
 
 ---
