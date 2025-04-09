@@ -1,0 +1,23 @@
+If a product has a rating greater than 4.5,
+Then it is a PremiumProduct.
+ecomm:hasReview(?r), ecomm:hasRating(?r, ?rate), swrlb:greaterThan(?rate, 4.5), ecomm:hasReview(?p, ?r) 
+→ ecomm:PremiumProduct(?p)
+
+
+If a product has a price greater than 1000,
+Then it qualifies for a discount.
+ecomm:hasPrice(?p, ?price), swrlb:greaterThan(?price, 1000) 
+→ ecomm:EligibleForDiscount(?p)
+
+
+If a customer placed more than 5 orders,
+Then they are a LoyalCustomer.
+ecomm:placedOrder(?c, ?o1), ecomm:placedOrder(?c, ?o2), ecomm:placedOrder(?c, ?o3),
+ecomm:placedOrder(?c, ?o4), ecomm:placedOrder(?c, ?o5), ecomm:placedOrder(?c, ?o6) 
+→ ecomm:LoyalCustomer(?c)
+
+
+If an order has a total price above 5000,
+Then classify it as a HighValueOrder.
+ecomm:totalPrice(?order, ?total), swrlb:greaterThan(?total, 5000) 
+→ ecomm:HighValueOrder(?order)
