@@ -8,6 +8,16 @@ WHERE {
   ?product ecomm:hasPrice ?price .
 }
 
+PREFIX ecomm: <http://www.semanticweb.org/ecommerce#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?product (STR(?name) AS ?cleanName) (STR(?price) AS ?cleanPrice)
+WHERE {
+  ?product rdf:type/rdfs:subClassOf* ecomm:Product .
+  ?product ecomm:productName ?name .
+  ?product ecomm:hasPrice ?price .
+}
+--------------------------------------------------------------------
 
 PREFIX ecomm: <http://www.semanticweb.org/ecommerce#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
