@@ -1,65 +1,93 @@
-📚 Domain Chosen: E-commerce
+# 🛍️ E-Commerce Ontology - Semantic Web Mini Project
 
-We selected E-commerce as the domain for this semantic web mini-project because it is highly structured and commonly used in real-world applications. The e-commerce ecosystem involves various entities such as products, sellers, buyers, orders, payments, and reviews—all of which can be clearly defined and interlinked using semantic web technologies.
+## 📚 Domain Chosen: E-commerce
+
+We selected **E-commerce** as the domain for this semantic web mini-project because it is highly structured and commonly used in real-world applications. The e-commerce ecosystem involves various entities such as products, sellers, buyers, orders, payments, and reviews—all of which can be clearly defined and interlinked using semantic web technologies.
+
+### 🔍 Why E-commerce?
 
 Modeling this domain with ontologies enables:
+- Better interoperability between systems
+- Improved product search and recommendation
+- Clearer understanding of customer behaviors and preferences
+- Intelligent querying of e-commerce data
 
-* Better interoperability between systems
+This ontology can be useful for:
+- Developers building smart e-commerce platforms
+- Businesses aiming to analyze and organize product data
+- Researchers working on semantic web and data integration
 
-* Improved product search and recommendation
+---
 
-* Clearer understanding of customer behaviors and preferences
+## 🧠 Model Overview
 
-* Intelligent querying of e-commerce data
+### 🎓 Classes (Concepts)
+- `Product`
+- `Customer`
+- `Order`
+- `Seller`
+- `Review`
+- `Category`
+- `Payment`
 
-* This ontology can be useful for:
+### 🔗 Object Properties
+| Property         | Domain     | Range     | Description                                |
+|------------------|------------|-----------|--------------------------------------------|
+| `purchasedBy`    | Order      | Customer  | Links an order to the customer who placed it |
+| `soldBy`         | Product    | Seller    | Links a product to the seller              |
+| `hasCategory`    | Product    | Category  | Specifies the category of the product      |
+| `includesProduct`| Order      | Product   | Indicates products included in an order    |
+| `hasReview`      | Product    | Review    | Links a product to its reviews             |
 
-* Developers building smart e-commerce platforms
+### 🧮 Data Properties
+| Property        | Domain     | Range       | Description                                 |
+|-----------------|------------|-------------|---------------------------------------------|
+| `hasPrice`      | Product    | xsd:float   | Price of a product                          |
+| `hasRating`     | Review     | xsd:float   | Numeric rating given in a review            |
+| `hasDate`       | Order/Review| xsd:date   | Date of order or review                     |
+| `hasEmail`      | Customer/Seller | xsd:string | Email of a customer or seller           |
+| `hasQuantity`   | Order      | xsd:int     | Quantity of a product in the order          |
+| `productName`   | Product    | xsd:string  | Name of the product                         |
 
-* Businesses aiming to analyze and organize product data
+---
 
-* Researchers working on semantic web and data integration
+## 🧩 Namespaces Used
 
-✅ Key Concepts and Relationships
-Here’s a suggestion for how you might model the core of your ontology:
+We will use standard semantic web namespaces, including:
 
-🎓 Main Classes
-- Product
+- `rdf`: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+- `rdfs`: <http://www.w3.org/2000/01/rdf-schema#>
+- `xsd`: <http://www.w3.org/2001/XMLSchema#>
+- `owl`: <http://www.w3.org/2002/07/owl#>
+- `foaf`: <http://xmlns.com/foaf/0.1/>
+- `dc`: <http://purl.org/dc/elements/1.1/>
 
-- Customer
+---
 
-- Order
+## ⚙️ Project Phases
 
-- Seller
+| Phase           | Description |
+|----------------|-------------|
+| ✅ Phase 1      | Choose the domain and define key concepts |
+| 🔜 Phase 2      | Model the domain in RDF/RDFS using Protégé |
+| 🔜 Phase 3      | Interrogate the ontology with SPARQL queries |
+| 🔜 Phase 4      | Extend and formalize the ontology using OWL |
+| 🔜 Phase 5      | Define reasoning rules using SWRL |
 
-- Review
+---
 
-- Category
+## 🗂️ Project Structure
+ ecommerce-ontology-semweb ├── ontology/ │ ├── ecommerce.owl │ └── ecommerce.rdf ├── queries/ │ └── sparql_queries.rq ├── rules/ │ └── swrl_rules.txt ├── README.md
+ 
+---
 
-- Payment
+## ✨ Conclusion
 
-🔗 Object Properties
+This project demonstrates how semantic web technologies like RDF, RDFS, OWL, SPARQL, and SWRL can be applied to the domain of E-commerce. The ontology provides a structured way to describe e-commerce entities and their relationships, enabling powerful querying, reasoning, and data integration across platforms.
 
-* purchasedBy → links Order to Customer
+---
 
-* soldBy → links Product to Seller
+## 🧑‍💻 Authors
+- Med Salim Gharsellaoui & Nour Abed
 
-* hasCategory → links Product to Category
 
-* includesProduct → links Order to Product
-
-* hasReview → links Product to Review
-
-🧮 Data Properties
-
-* hasPrice (float)
-
-* hasRating (integer or float)
-
-* hasDate (date)
-
-* hasEmail (for Customer or Seller)
-
-* hasQuantity (integer)
-
-* productName (string)
