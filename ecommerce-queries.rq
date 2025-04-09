@@ -1,0 +1,40 @@
+
+# Query 1: Orders that include more than one product
+PREFIX ecom: <http://www.semanticweb.org/ecommerce#>
+
+SELECT DISTINCT ?order
+WHERE {
+  ?order a ecom:CompletedOrder ;
+         ecom:includesProduct ?product1, ?product2 .
+  FILTER(?product1 != ?product2)
+}
+
+# Query 2: Users who purchased the product iphone15
+PREFIX ecom: <http://www.semanticweb.org/ecommerce#>
+
+SELECT DISTINCT ?user
+WHERE {
+  ?order ecom:includesProduct ecom:iphone15 ;
+         ecom:purchasedBy ?user .
+}
+
+# Query 3: Products in the Electronics category with rating above 4.5
+PREFIX ecom: <http://www.semanticweb.org/ecommerce#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?product ?rating
+WHERE {
+  ?product a ecom:Electronics ;
+           ecom:hasRating ?rating .
+  FILTER(xsd:decimal(?rating) > 4.5)
+}
+
+# Query 4: Users and their phone numbers who bought NikeAirMax
+PREFIX ecom: <http://www.semanticweb.org/ecommerce#>
+
+SELECT ?user ?phone
+WHERE {
+  ?order ecom:includesProduct ecom:NikeAirMax ;
+         ecom:purchasedBy ?user .
+  ?user ecom:hasPhone ?phone .
+}
