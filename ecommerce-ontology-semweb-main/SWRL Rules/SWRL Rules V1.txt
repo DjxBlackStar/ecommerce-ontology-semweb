@@ -1,0 +1,55 @@
+📘 SWRL Rules for E-Commerce Ontology
+--------------------------------------
+
+These rules define classifications and behaviors based on product, customer, and order attributes in an e-commerce environment. 
+Each rule is written in SWRL syntax and accompanied by a clear description of its business use.
+
+------------------------------------------------------------
+
+🔹 Rule 1: Identify Premium Products
+------------------------------------------------------------
+SWRL:
+hasReview(?r) ^ hasRating(?r, ?rate) ^ swrlb:greaterThan(?rate, 4.5) ^ hasReview(?p, ?r) 
+→ PremiumProduct(?p)
+
+📌 Description:
+If a product's rating is greater than 4.5, it is marked as a PremiumProduct.
+This can be used to highlight top-rated items on the platform.
+
+------------------------------------------------------------
+
+🔹 Rule 2: Discount Eligibility for Expensive Products
+------------------------------------------------------------
+SWRL:
+hasPrice(?p, ?price) ^ swrlb:greaterThan(?price, 1000) 
+→ EligibleForDiscount(?p)
+
+📌 Description:
+Products priced over 1000 are eligible for a discount, encouraging conversions on high-value items.
+
+------------------------------------------------------------
+
+🔹 Rule 3: Recognize Loyal Customers
+------------------------------------------------------------
+SWRL:
+placedOrder(?c, ?o1) ^ placedOrder(?c, ?o2) ^ placedOrder(?c, ?o3) ^ 
+placedOrder(?c, ?o4) ^ placedOrder(?c, ?o5) ^ placedOrder(?c, ?o6) 
+→ LoyalCustomer(?c)
+
+📌 Description:
+Customers who have placed more than five orders are labeled as LoyalCustomers.
+They may be offered exclusive deals or rewards.
+
+------------------------------------------------------------
+
+🔹 Rule 4: Classify High-Value Orders
+------------------------------------------------------------
+SWRL:
+totalPrice(?order, ?total) ^ swrlb:greaterThan(?total, 5000) 
+→ HighValueOrder(?order)
+
+📌 Description:
+Orders exceeding a total price of 5000 are considered HighValueOrders.
+These can be prioritized for premium handling or customer service.
+
+------------------------------------------------------------

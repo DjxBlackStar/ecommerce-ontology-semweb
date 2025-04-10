@@ -1,0 +1,26 @@
+# 1. If a review is written by a customer, the customer is considered a RegisteredCustomer
+
+ecomm:writtenBy(?review, ?user) ^ ecomm:Review(?review) ^ ecomm:Customer(?user) ^ ecomm:RegisteredCustomer(?user)
+
+
+# 2. If a product has a rating ≥ 4, it's treated as a VerifiedPurchaseReview
+
+ecomm:hasRating(?product, ?rating) ^ ecomm:Product(?product) ^ swrlb:greaterThanOrEqual(?rating, 4) ^ ecomm:VerifiedPurchaseReview(?product)
+
+
+
+# 3. A customer with both email and phone becomes a RegisteredCustomer
+
+ecomm:hasEmail(?user, ?email) ^ ecomm:hasPhone(?user, ?phone) ^ ecomm:Customer(?user) ^ ecomm:RegisteredCustomer(?user)
+
+
+
+# 4. An order that includes at least two different products becomes a CompletedOrder
+
+ecomm:includesProduct(?order, ?p1) ^ ecomm:includesProduct(?order, ?p2) ^ ecomm:Order(?order) ^ swrlb:notEqual(?p1, ?p2) ^ ecomm:CompletedOrder(?order)
+
+
+
+# 5. A user who purchased an order and it was processed with a transaction is a Customer
+
+ecomm:purchasedBy(?order, ?user) ^ ecomm:processedWith(?order, ?transaction) ^ ecomm:Order(?order) ^ ecomm:Customer(?user)

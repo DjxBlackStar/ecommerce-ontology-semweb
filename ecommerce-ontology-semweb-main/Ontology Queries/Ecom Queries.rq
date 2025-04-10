@@ -1,0 +1,85 @@
+# Query 1: Get all users and their phone numbers
+# This query retrieves users and their associated phone numbers.
+PREFIX ecom: <http://www.semanticweb.org/ecommerce#>
+SELECT ?user ?phone
+WHERE {
+  ?user ecom:hasPhone ?phone .
+}
+
+# Query 2: Get all products and their quantity in stock
+# This query returns products with their available quantity.
+PREFIX ecom: <http://www.semanticweb.org/ecommerce#>
+SELECT ?product ?quantity
+WHERE {
+  ?product ecom:hasQuantity ?quantity .
+}
+
+# Query 3: Find orders that were processed with a transaction
+# Retrieves orders that have an associated transaction.
+PREFIX ecom: <http://www.semanticweb.org/ecommerce#>
+SELECT ?order ?transaction
+WHERE {
+  ?order ecom:processedWith ?transaction .
+}
+
+# Query 4: Get reviews and their text content
+# Shows review individuals and their textual descriptions.
+PREFIX ecom: <http://www.semanticweb.org/ecommerce#>
+SELECT ?review ?description
+WHERE {
+  ?review ecom:description ?description .
+}
+
+# Query 5: List all defined shipping addresses
+# Returns all individuals of class Address.
+PREFIX ecom: <http://www.semanticweb.org/ecommerce#>
+SELECT ?address
+WHERE {
+  ?address a ecom:Address .
+}
+
+# Query 6: Find users who have both an email and a phone number
+# Filters users that have both contact details.
+PREFIX ecom: <http://www.semanticweb.org/ecommerce#>
+SELECT ?user ?email ?phone
+WHERE {
+  ?user ecom:hasEmail ?email ;
+        ecom:hasPhone ?phone .
+}
+
+# Query 7: List orders with at least two different products
+# Detects orders that include multiple distinct products.
+PREFIX ecom: <http://www.semanticweb.org/ecommerce#>
+SELECT DISTINCT ?order
+WHERE {
+  ?order ecom:includesProduct ?product1, ?product2 .
+  FILTER(?product1 != ?product2)
+}
+
+# Query 8: Find products with a rating of 4 or more and a description
+# Lists products that are well-rated.
+PREFIX ecom: <http://www.semanticweb.org/ecommerce#>
+SELECT ?product ?rating
+WHERE {
+  ?product ecom:hasRating ?rating .
+  FILTER(?rating >= 4)
+}
+
+# Query 9: Get users who wrote a review, with the review content
+# Links users to reviews they've written with the description.
+PREFIX ecom: <http://www.semanticweb.org/ecommerce#>
+SELECT ?user ?review ?description
+WHERE {
+  ?review ecom:writtenBy ?user ;
+          ecom:description ?description .
+}
+
+# Query 10: Get orders, their related transactions, and the users who placed them
+# Combines order info with purchaser and transaction.
+PREFIX ecom: <http://www.semanticweb.org/ecommerce#>
+SELECT ?order ?transaction ?user
+WHERE {
+  ?order a ecom:CompletedOrder ;
+         ecom:processedWith ?transaction ;
+         ecom:purchasedBy ?user .
+}

@@ -1,0 +1,1240 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/ecommerce#"
+     xml:base="http://www.semanticweb.org/ecommerce"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ecomm="http://www.semanticweb.org/ecommerce#"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:vcard="http://schema.org/](http://www.w3.org/2001/vcard-rdf/3.0#"
+     xmlns:schema="http://schema.org/">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/ecommerce">
+        <rdfs:comment>This ontology models the structure and relationships within an e-commerce platform. It includes key concepts such as Users, Products, Orders, Categories, and Ratings, along with their associated properties and interactions. The ontology is designed to support reasoning tasks like identifying valued customers, popular products, and product recommendations based on user behavior and metadata.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
+
+    <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#hasCategory -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ecommerce#hasCategory">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ecommerce#Product"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ecommerce#Category"/>
+        <rdfs:comment>Specifies the category of the product
+</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#hasReview -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ecommerce#hasReview">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ecommerce#Product"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ecommerce#Review"/>
+        <rdfs:comment>Links a product to its reviews
+</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#includesProduct -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ecommerce#includesProduct">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ecommerce#Order"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ecommerce#Product"/>
+        <rdfs:comment>Indicates products included in an order
+</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#processedWith -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ecommerce#processedWith">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ecommerce#Order"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ecommerce#Payment"/>
+        <rdfs:comment>Links an order to its payment method
+</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#purchasedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ecommerce#purchasedBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ecommerce#Order"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ecommerce#Customer"/>
+        <rdfs:comment>Links an order to the customer who placed it
+</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#shippedTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ecommerce#shippedTo">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ecommerce#Order"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ecommerce#Address"/>
+        <rdfs:comment>Links an order to a shipping address
+</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#soldBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ecommerce#soldBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ecommerce#Product"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ecommerce#Seller"/>
+        <rdfs:comment>Links a product to the seller
+</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#writtenBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ecommerce#writtenBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ecommerce#Review"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ecommerce#Customer"/>
+        <rdfs:comment>Links a review to the customer who wrote it
+</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#description -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ecommerce#description">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ecommerce#Product"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Detailed description of the product
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#hasDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ecommerce#hasDate">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ecommerce#Order"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ecommerce#Review"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment>Date of order or review
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#hasDiscount -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ecommerce#hasDiscount">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ecommerce#Product"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>Discount percentage on a product
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#hasEmail -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ecommerce#hasEmail">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ecommerce#Customer"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ecommerce#Seller"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Email of a customer or seller
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#hasPhone -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ecommerce#hasPhone">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ecommerce#Customer"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ecommerce#Seller"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Phone number
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#hasPrice -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ecommerce#hasPrice">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ecommerce#Product"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>Price of a product
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#hasQuantity -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ecommerce#hasQuantity">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ecommerce#Order"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <rdfs:comment>Quantity of a product in the order
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#hasRating -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ecommerce#hasRating">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ecommerce#Review"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>Numeric rating given in a review
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#hasWeight -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ecommerce#hasWeight">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ecommerce#PhysicalProduct"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>Weight of a physical product
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#productName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ecommerce#productName">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ecommerce#Product"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Name of the product
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#Address -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ecommerce#Address"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#BankTransferPayment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ecommerce#BankTransferPayment">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ecommerce#Payment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#Books -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ecommerce#Books">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ecommerce#Category"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#CanceledOrder -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ecommerce#CanceledOrder">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ecommerce#Order"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#Category -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ecommerce#Category"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#CompanySeller -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ecommerce#CompanySeller">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ecommerce#Seller"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#CompletedOrder -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ecommerce#CompletedOrder">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ecommerce#Order"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#CreditCardPayment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ecommerce#CreditCardPayment">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ecommerce#Payment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#Customer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ecommerce#Customer"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#DigitalProduct -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ecommerce#DigitalProduct">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ecommerce#Product"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#DigitalWalletPayment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ecommerce#DigitalWalletPayment">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ecommerce#Payment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#Electronics -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ecommerce#Electronics">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ecommerce#Category"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#Fashion -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ecommerce#Fashion">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ecommerce#Category"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#GuestCustomer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ecommerce#GuestCustomer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ecommerce#Customer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#HomeAppliances -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ecommerce#HomeAppliances">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ecommerce#Category"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#IndividualSeller -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ecommerce#IndividualSeller">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ecommerce#Seller"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#Order -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ecommerce#Order"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#Payment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ecommerce#Payment"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#PendingOrder -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ecommerce#PendingOrder">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ecommerce#Order"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#PhysicalProduct -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ecommerce#PhysicalProduct">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ecommerce#Product"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#Product -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ecommerce#Product"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#RegisteredCustomer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ecommerce#RegisteredCustomer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ecommerce#Customer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#Review -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ecommerce#Review"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#Seller -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ecommerce#Seller"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#Toys -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ecommerce#Toys">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ecommerce#Category"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#UnverifiedReview -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ecommerce#UnverifiedReview">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ecommerce#Review"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#VerifiedPurchaseReview -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ecommerce#VerifiedPurchaseReview">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ecommerce#Review"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#Aldes -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#Aldes">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#IndividualSeller"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#Algeria_Freedom_Street_28000 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#Algeria_Freedom_Street_28000">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#Address"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#Amazon_Membership -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#Amazon_Membership">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#DigitalProduct"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#Apple -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#Apple">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#CompanySeller"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#Bajaj_Electricals -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#Bajaj_Electricals">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#HomeAppliances"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#BitHome -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#BitHome">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#IndividualSeller"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#Bosch_Assiets -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#Bosch_Assiets">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#HomeAppliances"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#Don_Quixote -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#Don_Quixote">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#Books"/>
+        <hasQuantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">15</hasQuantity>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#Ebook -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#Ebook">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#DigitalProduct"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#Hot_Wheels -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#Hot_Wheels">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#Toys"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#LEGO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#LEGO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#Toys"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#MacBookPro -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#MacBookPro">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#Electronics"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#PhysicalProduct"/>
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1999.99</hasPrice>
+        <productName>Macbook Pro</productName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#Nike -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#Nike">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#CompanySeller"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#NikeAirMax -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#NikeAirMax">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#Fashion"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#PhysicalProduct"/>
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">149.99</hasPrice>
+        <productName>NikeAir</productName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#Pride_and_Prejudice -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#Pride_and_Prejudice">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#Books"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#Review141 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#Review141">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#UnverifiedReview"/>
+        <writtenBy rdf:resource="http://www.semanticweb.org/ecommerce#user523"/>
+        <hasRating rdf:datatype="http://www.w3.org/2001/XMLSchema#float">5.2</hasRating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#Review477 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#Review477">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#UnverifiedReview"/>
+        <writtenBy rdf:resource="http://www.semanticweb.org/ecommerce#user1123"/>
+        <hasRating rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.5</hasRating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#SamsungS22 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#SamsungS22">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#Electronics"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#PhysicalProduct"/>
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">899.99</hasPrice>
+        <productName>Samsung 22</productName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#Strass_Bracelets -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#Strass_Bracelets">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#Fashion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#Transaction1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#Transaction1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#BankTransferPayment"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#Transaction12 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#Transaction12">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#CreditCardPayment"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#Transaction41 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#Transaction41">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#DigitalWalletPayment"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#Transaction77 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#Transaction77">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#CreditCardPayment"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#Tunisia_Sfax_3251 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#Tunisia_Sfax_3251">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#Address"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#Unkown2456 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#Unkown2456">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#GuestCustomer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#VReview14 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#VReview14">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#VerifiedPurchaseReview"/>
+        <writtenBy rdf:resource="http://www.semanticweb.org/ecommerce#user241"/>
+        <hasRating rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.0</hasRating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#VReview47 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#VReview47">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#VerifiedPurchaseReview"/>
+        <writtenBy rdf:resource="http://www.semanticweb.org/ecommerce#user456"/>
+        <hasRating rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</hasRating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#iphone15 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#iphone15">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#Electronics"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#PhysicalProduct"/>
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">999.99</hasPrice>
+        <productName>iphone 15</productName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#order01 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#order01">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#CompletedOrder"/>
+        <hasReview rdf:resource="http://www.semanticweb.org/ecommerce#VReview14"/>
+        <includesProduct rdf:resource="http://www.semanticweb.org/ecommerce#NikeAirMax"/>
+        <includesProduct rdf:resource="http://www.semanticweb.org/ecommerce#iphone15"/>
+        <processedWith rdf:resource="http://www.semanticweb.org/ecommerce#Transaction1"/>
+        <purchasedBy rdf:resource="http://www.semanticweb.org/ecommerce#user241"/>
+        <shippedTo rdf:resource="http://www.semanticweb.org/ecommerce#Tunisia_Sfax_3251"/>
+        <soldBy rdf:resource="http://www.semanticweb.org/ecommerce#Nike"/>
+        <hasWeight rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.3</hasWeight>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#order02 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#order02">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#CompletedOrder"/>
+        <hasReview rdf:resource="http://www.semanticweb.org/ecommerce#VReview47"/>
+        <includesProduct rdf:resource="http://www.semanticweb.org/ecommerce#MacBookPro"/>
+        <includesProduct rdf:resource="http://www.semanticweb.org/ecommerce#SamsungS22"/>
+        <processedWith rdf:resource="http://www.semanticweb.org/ecommerce#Transaction12"/>
+        <purchasedBy rdf:resource="http://www.semanticweb.org/ecommerce#user456"/>
+        <shippedTo rdf:resource="http://www.semanticweb.org/ecommerce#Algeria_Freedom_Street_28000"/>
+        <soldBy rdf:resource="http://www.semanticweb.org/ecommerce#Apple"/>
+        <hasWeight rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3.5</hasWeight>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#order22 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#order22">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#CanceledOrder"/>
+        <hasReview rdf:resource="http://www.semanticweb.org/ecommerce#Review141"/>
+        <includesProduct rdf:resource="http://www.semanticweb.org/ecommerce#Hot_Wheels"/>
+        <includesProduct rdf:resource="http://www.semanticweb.org/ecommerce#LEGO"/>
+        <processedWith rdf:resource="http://www.semanticweb.org/ecommerce#Transaction41"/>
+        <purchasedBy rdf:resource="http://www.semanticweb.org/ecommerce#user523"/>
+        <hasQuantity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</hasQuantity>
+        <hasWeight rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.6</hasWeight>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#order4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#order4">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#PendingOrder"/>
+        <hasReview rdf:resource="http://www.semanticweb.org/ecommerce#Review477"/>
+        <includesProduct rdf:resource="http://www.semanticweb.org/ecommerce#Bajaj_Electricals"/>
+        <includesProduct rdf:resource="http://www.semanticweb.org/ecommerce#Bosch_Assiets"/>
+        <processedWith rdf:resource="http://www.semanticweb.org/ecommerce#Transaction77"/>
+        <purchasedBy rdf:resource="http://www.semanticweb.org/ecommerce#user1123"/>
+        <soldBy rdf:resource="http://www.semanticweb.org/ecommerce#Aldes"/>
+        <hasWeight rdf:datatype="http://www.w3.org/2001/XMLSchema#float">60.4</hasWeight>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#smartphone -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#smartphone">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#Electronics"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#PhysicalProduct"/>
+        <description>New Brand</description>
+        <hasDiscount rdf:datatype="http://www.w3.org/2001/XMLSchema#float">15.0</hasDiscount>
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">499.99</hasPrice>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#testorder -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#testorder">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#Order"/>
+        <processedWith rdf:resource="http://www.semanticweb.org/ecommerce#Transaction1"/>
+        <purchasedBy rdf:resource="http://www.semanticweb.org/ecommerce#testuser"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#testreview -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#testreview">
+        <writtenBy rdf:resource="http://www.semanticweb.org/ecommerce#testuser"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#testuser -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#testuser">
+        <hasEmail>&quot;lkazjrei@gmail.com&quot;</hasEmail>
+        <hasPhone>&quot;+215485648&quot;</hasPhone>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#user1123 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#user1123">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#RegisteredCustomer"/>
+        <hasEmail>user1123@gmail.com</hasEmail>
+        <hasPhone>+21654869153</hasPhone>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#user241 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#user241">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#RegisteredCustomer"/>
+        <hasEmail>user241@gmail.com</hasEmail>
+        <hasPhone>+21354968321</hasPhone>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#user456 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#user456">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#RegisteredCustomer"/>
+        <hasEmail>user456@gmail.com</hasEmail>
+        <hasPhone>+54128965347</hasPhone>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#user523 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#user523">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#RegisteredCustomer"/>
+        <hasEmail>user523@gmail.com</hasEmail>
+        <hasPhone>+21652658479</hasPhone>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ecommerce#user963 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ecommerce#user963">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ecommerce#RegisteredCustomer"/>
+        <hasEmail>user963@gmail.com</hasEmail>
+        <hasPhone>+256381491</hasPhone>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/ecommerce#order">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/ecommerce#p1">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/ecommerce#p2">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/ecommerce#review">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/ecommerce#user">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/ecommerce#email">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/ecommerce#phone">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/ecommerce#transaction">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/ecommerce#product">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/ecommerce#rating">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>Rule 4 – Order with 2 different products is a CompletedOrder</rdfs:comment>
+        <rdfs:label>S4</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/ecommerce#includesProduct"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/ecommerce#order"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/ecommerce#p1"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/ecommerce#includesProduct"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/ecommerce#order"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/ecommerce#p2"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/ecommerce#Order"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/ecommerce#order"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#notEqual"/>
+                                                <swrl:arguments rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="http://www.semanticweb.org/ecommerce#p1"/>
+                                                    <rdf:Description rdf:about="http://www.semanticweb.org/ecommerce#p2"/>
+                                                </swrl:arguments>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/ecommerce#CompletedOrder"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/ecommerce#order"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>Rule 1 – A user who wrote a review is a RegisteredCustomer</rdfs:comment>
+        <rdfs:label>S1</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/ecommerce#writtenBy"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/ecommerce#review"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/ecommerce#user"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/ecommerce#Review"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/ecommerce#review"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/ecommerce#Customer"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/ecommerce#user"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/ecommerce#RegisteredCustomer"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/ecommerce#user"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>Rule 3 – A user with email and phone is a RegisteredCustomer</rdfs:comment>
+        <rdfs:label>S3</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/ecommerce#hasEmail"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/ecommerce#user"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/ecommerce#email"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/ecommerce#hasPhone"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/ecommerce#user"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/ecommerce#phone"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/ecommerce#Customer"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/ecommerce#user"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/ecommerce#RegisteredCustomer"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/ecommerce#user"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>Rule 5 – User who purchased an order with transaction is a Registered Customer</rdfs:comment>
+        <rdfs:label>S5</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/ecommerce#purchasedBy"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/ecommerce#order"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/ecommerce#user"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/ecommerce#processedWith"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/ecommerce#order"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/ecommerce#transaction"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/ecommerce#Order"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/ecommerce#order"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/ecommerce#RegisteredCustomer"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/ecommerce#user"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>Rule 2 – A product with rating ≥ 4 is a VerifiedPurchaseReview</rdfs:comment>
+        <rdfs:label>S2</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/ecommerce#hasRating"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/ecommerce#product"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/ecommerce#rating"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/ecommerce#Product"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/ecommerce#product"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                        <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#greaterThanOrEqual"/>
+                                        <swrl:arguments>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:resource="http://www.semanticweb.org/ecommerce#rating"/>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </swrl:arguments>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/ecommerce#VerifiedPurchaseReview"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/ecommerce#product"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
