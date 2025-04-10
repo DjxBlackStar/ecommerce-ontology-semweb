@@ -27,7 +27,9 @@
      xmlns:ecomm="http://www.semanticweb.org/ecommerce#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:vcard="&schema;](http://www.w3.org/2001/vcard-rdf/3.0#">
-    <owl:Ontology rdf:about="http://www.semanticweb.org/ecommerce"/>
+    <owl:Ontology rdf:about="http://www.semanticweb.org/ecommerce">
+        <rdfs:comment>This ontology models the structure and relationships within an e-commerce platform. It includes key concepts such as Users, Products, Orders, Categories, and Ratings, along with their associated properties and interactions. The ontology is designed to support reasoning tasks like identifying valued customers, popular products, and product recommendations based on user behavior and metadata.</rdfs:comment>
+    </owl:Ontology>
     
 
 
@@ -45,6 +47,8 @@
     <!-- http://www.semanticweb.org/ecommerce#hasCategory -->
 
     <owl:ObjectProperty rdf:about="&ecomm;hasCategory">
+        <rdfs:comment>Specifies the category of the product
+</rdfs:comment>
         <rdfs:range rdf:resource="&ecomm;Category"/>
         <rdfs:domain rdf:resource="&ecomm;Product"/>
     </owl:ObjectProperty>
@@ -54,6 +58,8 @@
     <!-- http://www.semanticweb.org/ecommerce#hasReview -->
 
     <owl:ObjectProperty rdf:about="&ecomm;hasReview">
+        <rdfs:comment>Links a product to its reviews
+</rdfs:comment>
         <rdfs:domain rdf:resource="&ecomm;Product"/>
         <rdfs:range rdf:resource="&ecomm;Review"/>
     </owl:ObjectProperty>
@@ -63,6 +69,8 @@
     <!-- http://www.semanticweb.org/ecommerce#includesProduct -->
 
     <owl:ObjectProperty rdf:about="&ecomm;includesProduct">
+        <rdfs:comment>Indicates products included in an order
+</rdfs:comment>
         <rdfs:domain rdf:resource="&ecomm;Order"/>
         <rdfs:range rdf:resource="&ecomm;Product"/>
     </owl:ObjectProperty>
@@ -72,6 +80,8 @@
     <!-- http://www.semanticweb.org/ecommerce#processedWith -->
 
     <owl:ObjectProperty rdf:about="&ecomm;processedWith">
+        <rdfs:comment>Links an order to its payment method
+</rdfs:comment>
         <rdfs:domain rdf:resource="&ecomm;Order"/>
         <rdfs:range rdf:resource="&ecomm;Payment"/>
     </owl:ObjectProperty>
@@ -81,6 +91,8 @@
     <!-- http://www.semanticweb.org/ecommerce#purchasedBy -->
 
     <owl:ObjectProperty rdf:about="&ecomm;purchasedBy">
+        <rdfs:comment>Links an order to the customer who placed it
+</rdfs:comment>
         <rdfs:range rdf:resource="&ecomm;Customer"/>
         <rdfs:domain rdf:resource="&ecomm;Order"/>
     </owl:ObjectProperty>
@@ -90,6 +102,8 @@
     <!-- http://www.semanticweb.org/ecommerce#shippedTo -->
 
     <owl:ObjectProperty rdf:about="&ecomm;shippedTo">
+        <rdfs:comment>Links an order to a shipping address
+</rdfs:comment>
         <rdfs:range rdf:resource="&ecomm;Address"/>
         <rdfs:domain rdf:resource="&ecomm;Order"/>
     </owl:ObjectProperty>
@@ -99,6 +113,8 @@
     <!-- http://www.semanticweb.org/ecommerce#soldBy -->
 
     <owl:ObjectProperty rdf:about="&ecomm;soldBy">
+        <rdfs:comment>Links a product to the seller
+</rdfs:comment>
         <rdfs:domain rdf:resource="&ecomm;Product"/>
         <rdfs:range rdf:resource="&ecomm;Seller"/>
     </owl:ObjectProperty>
@@ -108,6 +124,8 @@
     <!-- http://www.semanticweb.org/ecommerce#writtenBy -->
 
     <owl:ObjectProperty rdf:about="&ecomm;writtenBy">
+        <rdfs:comment>Links a review to the customer who wrote it
+</rdfs:comment>
         <rdfs:range rdf:resource="&ecomm;Customer"/>
         <rdfs:domain rdf:resource="&ecomm;Review"/>
     </owl:ObjectProperty>
@@ -128,6 +146,8 @@
     <!-- http://www.semanticweb.org/ecommerce#description -->
 
     <owl:DatatypeProperty rdf:about="&ecomm;description">
+        <rdfs:comment>Detailed description of the product
+</rdfs:comment>
         <rdfs:domain rdf:resource="&ecomm;Product"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
@@ -137,6 +157,8 @@
     <!-- http://www.semanticweb.org/ecommerce#hasDate -->
 
     <owl:DatatypeProperty rdf:about="&ecomm;hasDate">
+        <rdfs:comment>Date of order or review
+</rdfs:comment>
         <rdfs:domain rdf:resource="&ecomm;Order"/>
         <rdfs:domain rdf:resource="&ecomm;Review"/>
         <rdfs:range rdf:resource="&xsd;dateTime"/>
@@ -147,6 +169,8 @@
     <!-- http://www.semanticweb.org/ecommerce#hasDiscount -->
 
     <owl:DatatypeProperty rdf:about="&ecomm;hasDiscount">
+        <rdfs:comment>Discount percentage on a product
+</rdfs:comment>
         <rdfs:domain rdf:resource="&ecomm;Product"/>
         <rdfs:range rdf:resource="&xsd;float"/>
     </owl:DatatypeProperty>
@@ -156,6 +180,8 @@
     <!-- http://www.semanticweb.org/ecommerce#hasEmail -->
 
     <owl:DatatypeProperty rdf:about="&ecomm;hasEmail">
+        <rdfs:comment>Email of a customer or seller
+</rdfs:comment>
         <rdfs:domain rdf:resource="&ecomm;Customer"/>
         <rdfs:domain rdf:resource="&ecomm;Seller"/>
         <rdfs:range rdf:resource="&xsd;string"/>
@@ -166,6 +192,8 @@
     <!-- http://www.semanticweb.org/ecommerce#hasPhone -->
 
     <owl:DatatypeProperty rdf:about="&ecomm;hasPhone">
+        <rdfs:comment>Phone number
+</rdfs:comment>
         <rdfs:domain rdf:resource="&ecomm;Customer"/>
         <rdfs:domain rdf:resource="&ecomm;Seller"/>
         <rdfs:range rdf:resource="&xsd;string"/>
@@ -176,6 +204,8 @@
     <!-- http://www.semanticweb.org/ecommerce#hasPrice -->
 
     <owl:DatatypeProperty rdf:about="&ecomm;hasPrice">
+        <rdfs:comment>Price of a product
+</rdfs:comment>
         <rdfs:domain rdf:resource="&ecomm;Product"/>
         <rdfs:range rdf:resource="&xsd;float"/>
     </owl:DatatypeProperty>
@@ -185,6 +215,8 @@
     <!-- http://www.semanticweb.org/ecommerce#hasQuantity -->
 
     <owl:DatatypeProperty rdf:about="&ecomm;hasQuantity">
+        <rdfs:comment>Quantity of a product in the order
+</rdfs:comment>
         <rdfs:domain rdf:resource="&ecomm;Order"/>
         <rdfs:range rdf:resource="&xsd;int"/>
     </owl:DatatypeProperty>
@@ -194,6 +226,8 @@
     <!-- http://www.semanticweb.org/ecommerce#hasRating -->
 
     <owl:DatatypeProperty rdf:about="&ecomm;hasRating">
+        <rdfs:comment>Numeric rating given in a review
+</rdfs:comment>
         <rdfs:domain rdf:resource="&ecomm;Review"/>
         <rdfs:range rdf:resource="&xsd;float"/>
     </owl:DatatypeProperty>
@@ -203,6 +237,9 @@
     <!-- http://www.semanticweb.org/ecommerce#hasWeight -->
 
     <owl:DatatypeProperty rdf:about="&ecomm;hasWeight">
+        <rdfs:comment>Weight of a physical product
+</rdfs:comment>
+        <rdfs:domain rdf:resource="&ecomm;PhysicalProduct"/>
         <rdfs:range rdf:resource="&xsd;float"/>
     </owl:DatatypeProperty>
     
@@ -211,6 +248,8 @@
     <!-- http://www.semanticweb.org/ecommerce#productName -->
 
     <owl:DatatypeProperty rdf:about="&ecomm;productName">
+        <rdfs:comment>Name of the product
+</rdfs:comment>
         <rdfs:domain rdf:resource="&ecomm;Product"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
@@ -439,20 +478,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/ecommerce#Galaxy_23 -->
-
-    <owl:NamedIndividual rdf:about="&ecomm;Galaxy_23">
-        <rdf:type rdf:resource="&ecomm;Electronics"/>
-        <rdf:type rdf:resource="&ecomm;PhysicalProduct"/>
-        <hasWeight>0.168</hasWeight>
-        <description>Smartphone haute gamme avec appareil photo 108MP</description>
-        <hasPrice>899.99</hasPrice>
-        <hasDiscount>0.10</hasDiscount>
-        <purchasedBy rdf:resource="&ecomm;user523"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.semanticweb.org/ecommerce#MacBookPro -->
 
     <owl:NamedIndividual rdf:about="&ecomm;MacBookPro">
@@ -469,6 +494,7 @@
 
     <owl:NamedIndividual rdf:about="&ecomm;NikeAirMax">
         <rdf:type rdf:resource="&ecomm;Fashion"/>
+        <rdf:type rdf:resource="&ecomm;PhysicalProduct"/>
         <hasPrice rdf:datatype="&xsd;float">149.99</hasPrice>
         <hasRating rdf:datatype="&xsd;float">4.3</hasRating>
         <productName rdf:datatype="&xsd;string">NikeAir</productName>
@@ -529,6 +555,9 @@
     <owl:NamedIndividual rdf:about="&ecomm;smartphone">
         <rdf:type rdf:resource="&ecomm;Electronics"/>
         <rdf:type rdf:resource="&ecomm;PhysicalProduct"/>
+        <description>New Brand</description>
+        <hasPrice>499.99</hasPrice>
+        <hasDiscount>15</hasDiscount>
     </owl:NamedIndividual>
     
 
