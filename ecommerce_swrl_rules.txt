@@ -1,0 +1,59 @@
+
+📘 SWRL Rules for E-Commerce Ontology
+--------------------------------------
+
+These rules define real-life behaviors and classifications commonly used in modern e-commerce systems.
+Each rule includes the SWRL syntax and a description of its purpose.
+
+------------------------------------------------------------
+
+🔹 Rule 1: Frequent Buyer Becomes PremiumMember
+------------------------------------------------------------
+SWRL:
+User(?u) ^ placedOrder(?u, ?o1) ^ placedOrder(?u, ?o2) ^ placedOrder(?u, ?o3) ^ 
+differentFrom(?o1, ?o2) ^ differentFrom(?o2, ?o3) ^ differentFrom(?o1, ?o3) 
+→ PremiumMember(?u)
+
+📌 Description:
+If a user has placed three distinct orders, they qualify as a PremiumMember.
+This is useful for implementing loyalty tiers or special member benefits.
+
+------------------------------------------------------------
+
+🔹 Rule 2: High Value Order Gets Priority Shipping
+------------------------------------------------------------
+SWRL:
+Order(?o) ^ hasTotalPrice(?o, ?amount) ^ swrlb:greaterThan(?amount, 500) 
+→ PriorityShipping(?o)
+
+📌 Description:
+Any order with a total price exceeding 500 (e.g., dollars, euros) gets flagged for priority shipping.
+Useful for enhancing the experience of high-spending customers.
+
+------------------------------------------------------------
+
+🔹 Rule 3: Recommend Product Based on Repeat Purchases
+------------------------------------------------------------
+SWRL:
+includesProduct(?o1, ?p) ^ includesProduct(?o2, ?p) ^ purchasedBy(?o1, ?u) ^ 
+purchasedBy(?o2, ?u) ^ differentFrom(?o1, ?o2) 
+→ FrequentlyBoughtProduct(?p)
+
+📌 Description:
+If a user buys the same product in two different orders, it is marked as a frequently bought item.
+This helps in generating personalized recommendations.
+
+------------------------------------------------------------
+
+🔹 Rule 4: Flag User as Bulk Buyer
+------------------------------------------------------------
+SWRL:
+Order(?o) ^ purchasedBy(?o, ?u) ^ includesProduct(?o, ?p) ^ hasQuantity(?o, ?q) ^ 
+swrlb:greaterThan(?q, 10) 
+→ BulkBuyer(?u)
+
+📌 Description:
+If a user buys more than 10 units of a product in a single order, they are labeled as a BulkBuyer.
+This classification can trigger bulk discounts or special offers.
+
+------------------------------------------------------------
